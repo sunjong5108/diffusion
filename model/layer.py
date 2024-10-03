@@ -19,3 +19,7 @@ def dense(in_feat, out_ch):
     dense_layer = nn.Linear(in_features=ch, out_features=out_ch).to(in_feat.device)
 
     return dense_layer(in_feat)
+
+def batchnorm(in_feat, out_ch):
+    bn = nn.BatchNorm2d(num_features=out_ch)
+    return bn(in_feat)
