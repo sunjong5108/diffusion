@@ -10,8 +10,7 @@ class time_embedding(nn.Module):
     def forward(self, x_img, x_ts, out_ch):
         x_parameter = conv3x3(x_img, out_ch)
         x_parameter = self.relu(x_parameter)
-
-        x_ts = x_ts.view(-1, 1, 1).float()
+        x_ts = x_ts.float()
         time_parameter = dense(x_ts, out_ch)
         time_parameter = self.relu(time_parameter)
         time_parameter = time_parameter.view(-1, out_ch, 1, 1)
